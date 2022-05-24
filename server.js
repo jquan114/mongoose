@@ -8,6 +8,7 @@ const app = express();
 const PORT = 3000;
 const methodOverride = require('method-override')
 const Product = require('./models/products');
+const productSeed = require('./models/productSeed');
 const db = mongoose.connection;
 
 // Database Configuration
@@ -35,13 +36,39 @@ app.use(methodOverride("_method"))
 //<--------------ROUTES------------> 
 
 // Create
-app.post('/products', (req, res) => {
-	res.send('received');
+app.get('/products', (req, res) => {
+    Product.find({},(error,allProducts) => {
+        res.render('index.ejs', {products: allProducts})
+    })
 });
 
+//
+app.get('/products/seed', (req, res) => {
+ 
+    Product.deleteMany({}, (error, allProducts) => {});
+
+    Product.create(productSeed,
+
+        
+        (error, data) => {
+            res.redirect('/products');
+        }
+    );
+});
 //Read
 
 
+//New
+app.get('/products/new', (req, res) => {
+    res.render('new.ejs')
+})
+
+//Show
+app.get('/products/:id',(req, res) => {
+    Product.findById(req.params.id , (error, foundProduct) => {
+        res.render('show.ejs', {product: foundProduct})
+    })
+})
 
 //Update
 
