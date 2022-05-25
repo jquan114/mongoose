@@ -10,23 +10,28 @@
 
 <body>
     <nav>
-        <a href="/products/new">Add New Products</a>
+        <a href="/products/new"><button> Add A New Product</button></a>
     </nav>
 
     <h1>Mongoose Store</h1>
 
     <h3>Products</h3>
-    
+
     <ul>
         <% product.forEach(product=> {%>
             <a href="/products/<%=product._id;%>">
                 <img src="<%=product.img;%> ">
+                <a href="/products/<%=product._id %>/edit"><button> Edit</button></a>
             </a>
-            <h4><%= product.name;%></h4>
+            <h4>
+                <%= product.name;%>
+            </h4>
 
             <p>Price: <%= product.price;%>
             </p>
+
             <%}) %>
+
     </ul>
 </body>
 

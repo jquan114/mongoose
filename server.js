@@ -53,11 +53,28 @@ app.delete("/products/:id", (req, res) => {
     });
 
 //////////////////////////////////UPDATE/////////////////////////
+app.put("products/:id", (req, res) => {
+  if (req.body.completed === "on") {
+    req.body.completed = true
+  } else {
+    req.body.completed = false
+  }
+
+  Product.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {
+      new: true,
+    },
+    (error, updatedProduct) => {
+      res.redirect(`/products/${req.params.id}`)
+    }
+  )
+})
 
 
 
-
-/////////////////////////////////CREATE/////////////////////////
+/////////////////////////////////CREATE////////////////////////////
 app.post('/products', (req, res) => {
     if (req.body.completed === 'on') {
 		//if checked, req.body.completed is set to 'on'
@@ -71,11 +88,11 @@ app.post('/products', (req, res) => {
 		res.redirect('/products');
 	});
 });
-//////////////////////////////////EDIT///////////////////////////
+//////////////////////////////////EDIT//////////////////////////////
 
 app.get("/products/:id/edit", (req, res) => {
     console.log(req.params);
-    const products1 = products.find((item) => {
+    const products1 = Product.find((item) => {
       return item.id === req.params.id;
     });
     res.render("edit.ejs", {
@@ -96,7 +113,7 @@ app.get("/products/:id", (req, res) => {
   });
   
 
-/////////////////////////////////Create/////////////////////////
+/////////////////////////////////CREATE/////////////////////////
 app.get("/products", (req, res) => {
   Product.find({}, (error, allProducts) => {
     res.render("index.ejs", { products: allProducts });
