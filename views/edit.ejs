@@ -3,20 +3,20 @@
 
 <body>
     <!------------------------Create a form that includess hp, attack, speeds stats, id: req.params.id etc.------------------------>
-    <form action="/pokemon/<%= index %>?_method=PUT" method="POST">
-        Name: <input type="text" name="name" value="<%= product.name %>" id="name">
-        Description<input type="url" name="img" value="<%= pokemon.img %>" id="img"><br>
-        Price: 
-        <input type="text" name="type" value="<%= pokemon.type[0] %>">
-        <input type="text" name="type" value="<%= pokemon.type[1] %>"> <br>
-        Stats: 
- 
-        <input type="text" name="hp" value="<%= pokemon.stats.hp %>">
-        <input type="text" name="attack" value="<%= pokemon.stats.attack %>">
-        <input type="text" name="defense" value="<%= pokemon.stats.defense %>">
-
-        <input type="submit" value="Create" />
-      
+    <form action="/products/<%= product._id%>?_method=PUT" method="POST">
+        <!-------name,description,img,price,qty------>
+   <label for="name">Product name</label>
+   <input type="text" name="name" id="name" placeholder="<%= product.name %> "/>
+   <label for="desription">Description</label>
+   <input type="text" name="description" id="description" placeholder="<%= product.description %> "/>
+   <label for="img">Image</label>
+   <input type="image" name="img" id="img" placeholder="<%= product.img %> "/>
+   <label for="price">Price</label>
+   <input type="price" name="price" id="price" placeholder="<%= product.price>" />
+   <label for="qty">Qty</label>
+   <input type="number" name="qty" id="qty" placeholder="<%= product.qty %> "/>
+   <input type="submit" value="Edit product"/>
+   
     </form>
 </body>
 </html>
