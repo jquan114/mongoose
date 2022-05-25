@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= product.name %></title>
-  </head>
-  <body>
+</head>
+
+<body>
     <nav>
-      <a href="/store">Back</a>
+        <a href="/products">Back To Product Page</a>
     </nav>
 
-    <h1><%= product.name %></h1>
+    <h1><%= product.name %> </h1>
 
-    <img src="<%= product.img %> " />
-    
+     name:<%= product.description %>
+    <img src="<%= product.img %> "  alt=''/>
+
     <p><%= product.description %></p>
 
     <h3>Price: <%= product.price %></h3>
-    
-    <% if(product.qty <= 0) { %>
-       
-        <h2>Out of stock!</h2>
-    
-    <% }else { %>
-        <h4><%= product.qty%> left in stock</h4>
+    <!-----------Condition--------->
 
-        <button type="button">BUY</button>
-    <% } %> 
-    
-    <a href="/store/<%= product._id %>/edit">Edit Item</a>
-    <form>
-      <input type="submit" value="Delete" />
-    </form>
-  </body>
+    <% if(product.qty <=0) { %>
+
+        <h2>Out of stock!</h2>
+
+        <% }else { %>
+            <h4> <%= product.qty%> left in stock</h4>
+
+            <button type="button">BUY</button>
+            <% } %>
+
+                <a href="/products"><button> BUY</button></a>
+        <form>
+             <input type="submit" value="Delete" />
+        </form>
+</body>
+
 </html>

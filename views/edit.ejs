@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <!------------------------Create a form that includess hp, attack, speeds stats, id: req.params.id etc.------------------------>
+    <form action="/pokemon/<%= index %>?_method=PUT" method="POST">
+        Name: <input type="text" name="name" value="<%= product.name %>" id="name">
+        Description<input type="url" name="img" value="<%= pokemon.img %>" id="img"><br>
+        Price: 
+        <input type="text" name="type" value="<%= pokemon.type[0] %>">
+        <input type="text" name="type" value="<%= pokemon.type[1] %>"> <br>
+        Stats: 
+ 
+        <input type="text" name="hp" value="<%= pokemon.stats.hp %>">
+        <input type="text" name="attack" value="<%= pokemon.stats.attack %>">
+        <input type="text" name="defense" value="<%= pokemon.stats.defense %>">
+
+        <input type="submit" value="Create" />
+      
+    </form>
+</body>
+</html>
