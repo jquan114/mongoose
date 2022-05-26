@@ -5,18 +5,19 @@
     <!------------------------Create a form that includess hp, attack, speeds stats, id: req.params.id etc.------------------------>
     <form action="/products/<%= product._id%>?_method=PUT" method="POST">
         <!-------name,description,img,price,qty------>
-   <label for="name">Product name</label>
-   <input type="text" name="name" id="name" placeholder="<%= product.name %> "/>
-   <label for="desription">Description</label>
-   <input type="text" name="description" id="description" placeholder="<%= product.description %> "/>
-   <label for="img">Image</label>
-   <input type="image" name="img" id="img" placeholder="<%= product.img %> "/>
-   <label for="price">Price</label>
-   <input type="price" name="price" id="price" placeholder="<%= product.price>" />
-   <label for="qty">Qty</label>
-   <input type="number" name="qty" id="qty" placeholder="<%= product.qty %> "/>
-   <input type="submit" value="Edit product"/>
-   
+        <label for="name">Product name</label>
+        <input type="text" name="name" id="name" placeholder="<%= product.name %> " />
+        <label for="desription">Description</label>
+        <input type="text" name="description" id="description" placeholder="<%= product.description %> " />
+        <label for="img">Image</label>
+        <input type="text" name="img" id="img" placeholder="<%= product.img %> " />
+        <label for="price">Price</label> 
+        <input type="price" name="price" id="price" placeholder="<%= product.price%>" />
+        <label for="qty">Qty</label>
+        <input type="number" name="qty" id="qty" placeholder="<%= product.qty %> " />
+        <input type="submit" value="Edit product" />
+
     </form>
 </body>
+
 </html>
