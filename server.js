@@ -6,9 +6,9 @@ const mongoose = require("mongoose");
 const app = express();
 const PORT = 3000;
 const methodOverride = require("method-override");
+///////////more dependencies///////////
 const Product = require("./models/products");
 const productSeed = require("./models/productSeed");
-const { append } = require("express/lib/response");
 const db = mongoose.connection;
 const productController = require('./controllers/product')
 

@@ -64,14 +64,12 @@ router.post('/', (req, res) => {
 //////////////////////////////////EDIT//////////////////////////////
 
 router.get("/:id/edit", (req, res) => {
-    console.log(req.params);
-    const products1 = Product.find((item) => {
-      return item.id === req.params.id;
-    });
+    
+  Product.findById(req.params.id, (error, productInfo) => {
     res.render("edit.ejs", {
-      index: products1.id,
-      product:products1,
-    });
+      product: productInfo,
+    })
+  })
   });
 
 
